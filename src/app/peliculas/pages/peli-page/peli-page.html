@@ -1,0 +1,56 @@
+@if (pelicula) {
+  <div class="hero-banner" [style.background-image]="'url(https://image.tmdb.org/t/p/original' + pelicula.backdrop_path + ')'">
+    <div class="overlay">
+      <div class="content-wrapper">
+
+        <div class="poster-container">
+          <img [src]="'https://image.tmdb.org/t/p/w500' + pelicula.poster_path"
+               [alt]="pelicula.title"
+               class="main-poster">
+        </div>
+
+        <div class="info-container">
+          <h1 class="title">{{ pelicula.title }}</h1>
+          <p class="tagline">{{ pelicula.tagline }}</p>
+
+          <div class="stats-row">
+            <span class="chip year">{{ pelicula.release_date | date:'yyyy' }}</span>
+            <span class="chip duration">{{ pelicula.runtime }} min</span>
+            <span class="rating">⭐ {{ pelicula.vote_average | number:'1.1-1' }}</span>
+          </div>
+
+          <div class="genres-row">
+            @for (genero of pelicula.genres; track genero.id) {
+              <span class="genre-badge">{{ genero.name }}</span>
+            }
+          </div>
+
+          <div class="description">
+            <h3>Sinopsis</h3>
+            <p>{{ pelicula.overview }}</p>
+          </div>
+
+          <div class="actions">
+            <button mat-raised-button color="primary" routerLink="/peliculas/listado">
+              <mat-icon>arrow_back</mat-icon> Volver al listado
+            </button>
+
+            <button mat-fab class="fav-fab" (click)="ponerFavorito()">
+              @if (esFavorita) {
+                <mat-icon color="warn">favorite</mat-icon>
+              } @else {
+                <mat-icon>favorite_border</mat-icon>
+              }
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+} @else {
+  <div class="loading-container">
+    <mat-spinner></mat-spinner>
+    <p>Cargando detalles de la película...</p>
+  </div>
+}

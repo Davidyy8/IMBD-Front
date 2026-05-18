@@ -1,0 +1,129 @@
+.hero-banner {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed; /* Efecto parallax suave */
+  position: relative;
+}
+
+.overlay {
+  min-height: 100vh;
+  background: linear-gradient(to right, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.4));
+  display: flex;
+  align-items: center;
+  padding: 40px 10%;
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 50px;
+  color: white;
+  align-items: flex-start;
+  max-width: 1200px;
+}
+
+.main-poster {
+  width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.info-container {
+  flex: 1;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 5px;
+  line-height: 1.1;
+}
+
+.tagline {
+  font-size: 1.4rem;
+  color: #ccc;
+  font-style: italic;
+  margin-bottom: 25px;
+}
+
+.stats-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.chip {
+  background: rgba(255,255,255,0.2);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.rating {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffc107;
+}
+
+.genres-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.genre-badge {
+  border: 1px solid rgba(255,255,255,0.5);
+  padding: 2px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.description h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #00bcd4; /* Azul tipo Cisco */
+}
+
+.description p {
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: #eee;
+}
+
+.actions {
+  margin-top: 40px;
+}
+
+.loading-container {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.actions {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Espacio entre el botón azul y el corazón */
+}
+
+.fav-fab {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(5px);
+  transition: transform 0.3s ease;
+}
+
+.fav-fab:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Color rojo para el corazón cuando está activo */
+mat-icon[color="warn"] {
+  color: #f44336 !important;
+}

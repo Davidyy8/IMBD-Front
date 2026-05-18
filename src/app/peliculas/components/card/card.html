@@ -1,0 +1,53 @@
+<mat-card class="movie-card">
+  <mat-card-header>
+    <mat-card-title>{{ pelicula.title }}</mat-card-title>
+    <mat-card-subtitle>{{ pelicula.release_date | date:'yyyy' }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <img mat-card-image
+       [src]="'https://image.tmdb.org/t/p/w500' + pelicula.poster_path"
+       [alt]="pelicula.title">
+
+  <mat-card-content class="mt-2">
+    <h4>Puntuación: {{ pelicula.vote_average | number:'1.1-1' }} / 10</h4>
+
+    @if (pelicula.overview) {
+      <p class="overview">
+        {{ pelicula.overview | slice:0:150 }}{{ pelicula.overview.length > 150 ? '...' : '' }}
+      </p>
+    }
+
+    <mat-chip-listbox>
+      <mat-chip color="accent" selected>Pelicula</mat-chip>
+    </mat-chip-listbox>
+  </mat-card-content>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-actions>
+    @if (esFavorita) {
+      <button mat-icon-button
+      color="warn"
+      (click)="ponerFavorito()"
+      matTooltip=""Quitar de favoritos>
+      <mat-icon>favorite</mat-icon>
+      </button>
+    } @else {
+      <button mat-icon-button
+      (click)="ponerFavorito()"
+      matTooltip="Añadir a favoritos">
+      <mat-icon>favorite_border</mat-icon>
+      </button>
+    }
+
+    <span class="spacer"></span>
+
+    <button mat-button
+            mat-raised-button
+            color="primary"
+            [routerLink]="['/peliculas/pelicula-detalle', pelicula.id]">
+      <mat-icon>visibility</mat-icon>
+      Ver Ficha
+    </button>
+  </mat-card-actions>
+</mat-card>

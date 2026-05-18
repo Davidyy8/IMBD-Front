@@ -1,0 +1,55 @@
+<div class="login-container">
+  <div class="login-card">
+
+    <div class="login-header">
+      <h2>Iniciar Sesión</h2>
+      <p class="subtitle">Accede a tu cuenta de Cine App</p>
+    </div>
+
+    @if (cargando) {
+      <div class="loading-step">
+        <div class="spinner"></div> <p>Verificando identidad...</p>
+      </div>
+    }
+
+    @else if (paso === 1) {
+      <div class="input-group">
+        <label for="usuario" class="input-label">Correo</label>
+        <input type="email"
+               id="usuario"
+               name="usuario"
+               class="cisco-input"
+               [(ngModel)]="datosLogin.usuario"
+               placeholder="ejemplo@cineapp.com"
+               (keyup.enter)="irAPassword()"> </div>
+
+      <button mat-raised-button color="primary" class="full-width"
+              (click)="irAPassword()">
+        Siguiente
+      </button>
+    }
+
+    @else if (paso === 2) {
+      <div class="user-display" (click)="paso = 1" style="cursor: pointer;">
+
+        <span class="text">{{ datosLogin.usuario }}</span>
+      </div>
+
+      <div class="input-group">
+        <label for="password" class="input-label">Contraseña</label>
+        <input type="password"
+               id="password"
+               name="password"
+               class="cisco-input"
+               [(ngModel)]="datosLogin.password"
+               placeholder="••••••••"
+               (keyup.enter)="ejecutarLogin()">
+      </div>
+
+      <div class="acciones-grupo">
+        <button mat-raised-button color="primary" class="full-width" (click)="ejecutarLogin()">Entrar</button>
+      </div>
+    }
+
+  </div>
+</div>

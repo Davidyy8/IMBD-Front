@@ -1,0 +1,136 @@
+/* 1. Contenedor Principal: Fondo gris claro ocupando toda la pantalla */
+.login-container {
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center;     /* Centrado vertical */
+  height: 100vh;           /* Ocupa el 100% del alto de la ventana */
+  background-color: #f1f1f1; /* Gris claro característico de Cisco */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía limpia */
+}
+
+/* 2. La Tarjeta de Login (La "ventana" blanca) */
+.login-card {
+  background-color: #ffffff; /* Blanco puro */
+  width: 100%;
+  max-width: 420px;         /* Ancho máximo de la tarjeta */
+  padding: 30px;            /* Espaciado interno generoso */
+  border-radius: 8px;       /* Bordes ligeramente redondeados */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave para "flotar" */
+  border: 1px solid #e0e0e0; /* Un borde muy sutil gris */
+}
+
+/* 3. El Título (Cisco Packet Tracer) */
+.login-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.login-header h2 {
+  color: #333333;           /* Gris muy oscuro */
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.login-header .subtitle {
+  color: #666666;           /* Gris medio */
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* 4. Estilos de los Inputs (Entradas de texto) */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-label {
+  display: block;
+  font-size: 14px;
+  color: #444444;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.cisco-input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 15px;
+  border: 1px solid #cccccc; /* Borde gris estándar */
+  border-radius: 6px;       /* Bordes redondeados */
+  box-sizing: border-box;   /* Crucial para que el padding no sume al ancho */
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.cisco-input:focus {
+  outline: none;            /* Quitamos el borde por defecto del navegador */
+  border-color: #007bff;   /* Borde azul al hacer foco */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15); /* Efecto de halo azul suave */
+}
+
+/* 5. El Botón (Azul Marino Cisco) */
+.cisco-button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #005fcc; /* Azul marino/eléctrico de Cisco */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 10px;
+}
+
+.cisco-button:hover {
+  background-color: #004da6; /* Azul un poco más oscuro al pasar el ratón */
+}
+
+.cisco-button:active {
+  background-color: #004291; /* Azul más oscuro al hacer clic */
+}
+
+/* 6. Estilos adicionales para el flujo de dos pasos (opcional, si los usas) */
+.user-display {
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.user-display .icon {
+  color: #005fcc;
+  font-size: 18px;
+  margin-right: 12px;
+}
+
+.user-display .text {
+  color: #333333;
+  font-size: 14px;
+}
+
+.acciones-grupo {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cisco-button-secondary {
+  flex: 1;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #444444;
+  background-color: #f1f1f1;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cisco-button-secondary:hover {
+  background-color: #e6e6e6;
+}
