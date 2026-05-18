@@ -21,9 +21,7 @@ export class LoginComponent {
   };
 
   constructor(
-    private authService: AuthService,
-    private router: Router,
-    private cdr: ChangeDetectorRef, // Inyectamos el detector de cambios
+    private authService: AuthService,private router: Router,private cdr: ChangeDetectorRef, // detector de cambios
     private snackBar: MatSnackBar
   ) {}
 
@@ -38,12 +36,12 @@ export class LoginComponent {
     if (!this.esEmailValido()) {
       this.snackBar.open('Por favor, introduce un correo electrónico válido', 'Cerrar', {
         duration: 3000,
-        panelClass: ['error-snackbar'] // Clase opcional para ponerlo rojo
+        panelClass: ['error-snackbar'] // Clase para ponerlo rojo
       });
       return;
     }
     if (this.esEmailValido()) {
-      this.cargando = true; // Mostramos el spinner/mensaje de carga
+      this.cargando = true; // mensaje de carga
       this.cdr.detectChanges();
 
       // Simulamos el delay de seguridad de 1.5 segundos
@@ -68,7 +66,6 @@ export class LoginComponent {
       error: () => {
         this.snackBar.open('Usuario o contraseña incorrectos', 'Reintentar', { duration: 3000 });
         this.paso = 1;
-        this.datosLogin.password = ''; // Limpiamos la clave por seguridad
         this.cdr.detectChanges();
       }
     });
